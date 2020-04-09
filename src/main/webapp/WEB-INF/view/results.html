@@ -1,0 +1,21 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Results</h1>
+<a th:href="@{/products}">Return to all products</a><br>
+<a th:href="@{/products/form}">Add product</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Cost</th>
+    </tr>
+
+    <tr th:each="instance : ${founded_products}">
+        <td th:text="${instance.key}"></td>
+        <td th:text="${instance.value.title}"></td>
+        <td th:text="${instance.value.cost}"></td>
+    </tr>
+</table>
+</body>
+</html>

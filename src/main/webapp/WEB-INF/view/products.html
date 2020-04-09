@@ -1,0 +1,21 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Product list</h1>
+<a th:href="@{/products/form}">Add product</a>
+<a th:href="@{/products/search}">Search</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Cost</th>
+    </tr>
+
+    <tr th:each="instance : ${products}">
+        <td th:text="${instance.key}"></td>
+        <td th:text="${instance.value.title}"></td>
+        <td th:text="${instance.value.cost}"></td>
+    </tr>
+</table>
+</body>
+</html>

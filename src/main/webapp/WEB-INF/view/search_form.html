@@ -1,0 +1,10 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h1>Search products by ID</h1>
+<form th:action="@{/products/search}" th:object="${search_req}" method="post">
+    <p>ID</p>
+    <p><input type="text" th:field="*{request}"></p>
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>
