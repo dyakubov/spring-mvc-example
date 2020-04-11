@@ -25,6 +25,7 @@ public class ProductController {
     @GetMapping
     public String allProducts(Model model){
         model.addAttribute("products", productRepository.getAllProducts());
+        model.addAttribute("search_req", new SearchRequest());
         return "products";
     }
 
@@ -40,14 +41,15 @@ public class ProductController {
         return "redirect:/products";
     }
 
-    @GetMapping("/search")
-    public String searchProduct(Model model){
-        model.addAttribute("search_req", new SearchRequest());
-        return "search_form";
-    }
+//    @GetMapping("/search")
+//    public String searchProduct(Model model){
+//        model.addAttribute("search_req", new SearchRequest());
+//        return "search_form";
+//    }
 
     @PostMapping("search")
     public String searchRequest(SearchRequest searchRequest, Model model){
+        model.addAttribute("search_req", new SearchRequest());
         model.addAttribute("founded_products", productRepository.getProductById(Integer.parseInt(searchRequest.getRequest())));
         return "results";
     }

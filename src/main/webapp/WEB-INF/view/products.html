@@ -4,6 +4,12 @@
 <a th:href="@{/products/form}">Add product</a>
 <a th:href="@{/products/search}">Search</a>
 
+<form th:action="@{/products/search}" th:object="${search_req}" method="post">
+    <p>ID</p>
+    <p><input type="text" th:field="*{request}"></p>
+    <button type="submit">Search</button>
+</form>
+
 <table>
     <tr>
         <th>ID</th>
